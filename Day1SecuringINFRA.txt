@@ -189,10 +189,10 @@ config t
 ip routing
 ip dhcp pool CAMERA6
 host 10.71.50.6 255.255.255.0
-client-identifier abcd.1234.cafb
+client-identifier 001a.0704.7f67
 ip dhcp pool CAMERA8
 host 10.71.50.8 255.255.255.0
-client-identifier abcd.1234.cafb
+client-identifier 20bb.c0df.d297
 end
 show ip dhcp binding
 
@@ -313,12 +313,12 @@ ephone-dn 8
 ephone-dn 10
  number 7198
 Ephone 1
-  Mac-address cafe.face.baba
+  Mac-address ccd8.c1fb.0953
   type 8945
   button 1:8 2:7 3:6 4:5
   restart
 Ephone 2
-  Mac-address fafa.caca.baba
+  Mac-address 20bb.c0df.d297
   type 8945
   button 1:4 2:3 3:2 4:1
   restart  
@@ -395,10 +395,10 @@ dial-peer voice 62 Voip
  destination-pattern 62..
  session target ipv4:10.62.100.8
  codec g711ULAW
-dial-peer voice 71 Voip
- destination-pattern 71..
- session target ipv4:10.71.100.8
- codec g711ULAW
+!dial-peer voice 71 Voip
+ !destination-pattern 71..
+ !session target ipv4:10.71.100.8
+ !codec g711ULAW
 dial-peer voice 72 Voip
  destination-pattern 72..
  session target ipv4:10.72.100.8
@@ -410,6 +410,14 @@ dial-peer voice 81 Voip
 dial-peer voice 82 Voip
  destination-pattern 82..
  session target ipv4:10.82.100.8
+ codec g711ULAW
+dial-peer voice 91 Voip
+ destination-pattern 91..
+ session target ipv4:10.91.100.8
+ codec g711ULAW
+dial-peer voice 92 Voip
+ destination-pattern 92..
+ session target ipv4:10.92.100.8
  codec g711ULAW
 
 TASK3***TASK3***TASK3***
@@ -666,32 +674,32 @@ conf t
 !
  voice register global
   mode cme
-  source-address 10._.100.8 port 5060
+  source-address 10.71.100.8 port 5060
   max-dn 12
   max-pool 12
   authenticate register
   create profile sync
  voice register dn 1
-   number ____
+   number 7167
    allow watch
-   name _______
+   name 7167
  voice register dn 2
-   number ___
+   number 7167
    allow watch
-   name _______
+   name 7167
 !
   voice register pool 1
-    id mac ____.____.____
+    id mac 6858.a069.80ca
     number 1 dn 1
     dtmf-relay sip-notify
-    username ____ password ____
+    username 7167 password 7167
     codec g711ulaw
 !
   voice register pool 2
-    id mac ____.____.____
+    id mac 20bb.c0df.d297
     number 1 dn 2
     dtmf-relay sip-notify
-    username ____ password ____
+    username admin password pass
     codec g711ulaw
 !
 *******call other countries!!!********
